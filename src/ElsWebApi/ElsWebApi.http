@@ -1,0 +1,6 @@
+@ElsWebApi_HostAddress = http://localhost:5289
+
+GET {{ElsWebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
