@@ -22,3 +22,26 @@
 > 5f73c5817240   elasticsearch:8.13.0   "/bin/tini -- /usr/l…"   3 minutes ago   Up 3 minutes   0.0.0.0:9200->9200/tcp, 9300/tcp   els
 
 
+Далее в Program.cs пишем и подключаем конфигурацию и Serilog 
+
+> configureLogging();
+>
+> builder.Host.UseSerilog();
+
+В файле конфигурации appsettings.json добавить следующее
+
+>
+> "Serilog":{
+>    "MinimumLevel": {
+>      "Default": "Information",
+>      "Override": {
+>        "Microsoft":"Information",
+>        "System":"Warning"
+>      }
+>    }
+>  },
+>
+>  "ElasticConfiguration":{
+>    "Uri":"http://localhost:9200"
+>  },
+>
